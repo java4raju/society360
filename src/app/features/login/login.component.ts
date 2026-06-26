@@ -22,6 +22,7 @@ import { AuthService } from '../../core/auth/auth.service';
           <li><mat-icon>insights</mat-icon> Executive analytics & KPIs</li>
           <li><mat-icon>groups</mat-icon> Transparent resident governance</li>
         </ul>
+        <div class="copyright">© 2026 Society360 [Raju Yadav java4raju@gmail.com]. All rights reserved.</div>
       </div>
       <div class="panel">
         <form class="glass-card card fade-in" (ngSubmit)="submit()">
@@ -67,6 +68,7 @@ import { AuthService } from '../../core/auth/auth.service';
     .feats { list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:12px; z-index:1; }
     .feats li { display:flex; align-items:center; gap:10px; color:#fff; font-weight:500; }
     .feats mat-icon { color:#a5f3fc; }
+    .aside .copyright { color: rgba(255,255,255,.6); font-size:.75rem; margin-top:24px; z-index:1; }
     .panel { display:grid; place-items:center; padding: 32px; background: var(--s-bg-grad); }
     .card { width:100%; max-width: 400px; padding: 36px 32px; display:flex; flex-direction:column; gap:6px; }
     .m-logo { background: linear-gradient(135deg,var(--s-primary),var(--s-violet)); color:#fff; margin-bottom:8px; }
