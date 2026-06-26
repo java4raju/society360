@@ -22,7 +22,7 @@ export class AuthService {
     if (username === 'admin' && password === 'admin') {
       const user: User = {
         username: 'admin',
-        name: 'Aravind Menon',
+        name: 'Vilaasa Vaasi',
         role: 'Society Administrator',
         email: 'admin@society360.in'
       };

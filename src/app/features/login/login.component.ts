@@ -27,7 +27,7 @@ import { AuthService } from '../../core/auth/auth.service';
         <form class="glass-card card fade-in" (ngSubmit)="submit()">
           <div class="m-logo"><mat-icon>holiday_village</mat-icon></div>
           <h2>Welcome back</h2>
-          <p class="sub">Sign in to the Society360 admin console</p>
+          <p class="sub">Sign in to the Vilaasa RWA admin console</p>
 
           <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
