@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -24,7 +25,24 @@ export const routes: Routes = [
       { path: 'meetings', loadComponent: () => import('./features/meetings/meetings.component').then(m => m.MeetingsComponent) },
       { path: 'residents', loadComponent: () => import('./features/residents/residents.component').then(m => m.ResidentsComponent) },
       { path: 'analytics', loadComponent: () => import('./features/analytics/analytics.component').then(m => m.AnalyticsComponent) },
-      { path: 'settings', loadComponent: () => import('./features/settings/settings.component').then(m => m.SettingsComponent) }
+      { path: 'settings', loadComponent: () => import('./features/settings/settings.component').then(m => m.SettingsComponent) },
+      {
+        path: 'admin',
+        loadComponent: () => import('./features/admin/admin-shell.component').then(m => m.AdminShellComponent),
+        canActivate: [adminGuard],
+        children: [
+          { path: '', redirectTo: 'residents', pathMatch: 'full' },
+          { path: 'residents', loadComponent: () => import('./features/admin/admin-residents/admin-residents.component').then(m => m.AdminResidentsComponent) },
+          { path: 'transactions', loadComponent: () => import('./features/admin/admin-transactions/admin-transactions.component').then(m => m.AdminTransactionsComponent) },
+          { path: 'complaints', loadComponent: () => import('./features/admin/admin-complaints/admin-complaints.component').then(m => m.AdminComplaintsComponent) },
+          { path: 'projects', loadComponent: () => import('./features/admin/admin-projects/admin-projects.component').then(m => m.AdminProjectsComponent) },
+          { path: 'notices', loadComponent: () => import('./features/admin/admin-notices/admin-notices.component').then(m => m.AdminNoticesComponent) },
+          { path: 'vendors', loadComponent: () => import('./features/admin/admin-vendors/admin-vendors.component').then(m => m.AdminVendorsComponent) },
+          { path: 'meetings', loadComponent: () => import('./features/admin/admin-meetings/admin-meetings.component').then(m => m.AdminMeetingsComponent) },
+          { path: 'polls', loadComponent: () => import('./features/admin/admin-polls/admin-polls.component').then(m => m.AdminPollsComponent) },
+          { path: 'import', loadComponent: () => import('./features/admin/admin-import/admin-import.component').then(m => m.AdminImportComponent) },
+        ]
+      }
     ]
   },
   { path: '**', redirectTo: '' }

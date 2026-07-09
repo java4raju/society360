@@ -98,7 +98,8 @@ export class ShellComponent {
     { label: 'Meetings', icon: 'groups', route: '/meetings' },
     { label: 'Residents', icon: 'diversity_3', route: '/residents' },
     { label: 'Analytics', icon: 'monitoring', route: '/analytics' },
-    { label: 'Settings', icon: 'settings', route: '/settings' }
+    { label: 'Settings', icon: 'settings', route: '/settings' },
+    { label: 'Admin Panel', icon: 'admin_panel_settings', route: '/admin' }
   ];
 
   toggleCollapse() { this.collapsed.update(c => !c); }
