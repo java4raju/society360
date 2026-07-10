@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ import { AuthService } from '../../core/auth/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule],
+  imports: [FormsModule, RouterLink, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule],
   template: `
     <div class="wrap">
       <div class="aside">
@@ -28,7 +28,7 @@ import { AuthService } from '../../core/auth/auth.service';
         <form class="glass-card card fade-in" (ngSubmit)="submit()">
           <div class="m-logo"><mat-icon>holiday_village</mat-icon></div>
           <h2>Welcome back</h2>
-          <p class="sub">Sign in to the Vilaasa RWA admin console</p>
+          <p class="sub">Sign in to the Society360 admin console</p>
 
           <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
@@ -48,6 +48,7 @@ import { AuthService } from '../../core/auth/auth.service';
             Sign In <mat-icon>arrow_forward</mat-icon>
           </button>
           <div class="hint">Demo credentials — <b>admin</b> / <b>admin</b></div>
+          <div class="hint" style="margin-top:8px">New RWA? <a routerLink="/register" style="color:var(--s-primary);font-weight:600;text-decoration:none">Register your society →</a></div>
         </form>
       </div>
     </div>

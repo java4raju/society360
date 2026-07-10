@@ -8,6 +8,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/login/login.component').then(m => m.LoginComponent)
   },
   {
+    path: 'register',
+    loadComponent: () => import('./features/register/register.component').then(m => m.RegisterComponent)
+  },
+  {
     path: '',
     loadComponent: () => import('./layout/shell.component').then(m => m.ShellComponent),
     canActivate: [authGuard],
@@ -26,6 +30,7 @@ export const routes: Routes = [
       { path: 'residents', loadComponent: () => import('./features/residents/residents.component').then(m => m.ResidentsComponent) },
       { path: 'analytics', loadComponent: () => import('./features/analytics/analytics.component').then(m => m.AnalyticsComponent) },
       { path: 'settings', loadComponent: () => import('./features/settings/settings.component').then(m => m.SettingsComponent) },
+      { path: 'settings/billing', loadComponent: () => import('./features/settings/billing.component').then(m => m.BillingComponent) },
       {
         path: 'admin',
         loadComponent: () => import('./features/admin/admin-shell.component').then(m => m.AdminShellComponent),

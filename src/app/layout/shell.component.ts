@@ -7,13 +7,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthService } from '../core/auth/auth.service';
 import { ThemeService } from '../core/services/theme.service';
+import { TrialBannerComponent } from '../shared/components/trial-banner.component';
 
 interface NavItem { label: string; icon: string; route: string; }
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatIconModule, MatButtonModule, MatMenuModule, MatTooltipModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatIconModule, MatButtonModule, MatMenuModule, MatTooltipModule, TrialBannerComponent],
   template: `
     <div class="shell" [class.collapsed]="collapsed()" [class.mobile-open]="mobileOpen()">
       <aside class="sidebar">
@@ -68,6 +69,7 @@ interface NavItem { label: string; icon: string; route: string; }
           </mat-menu>
         </header>
 
+        <app-trial-banner></app-trial-banner>
         <main class="content"><router-outlet></router-outlet></main>
       </div>
     </div>

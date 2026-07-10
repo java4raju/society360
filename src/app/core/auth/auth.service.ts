@@ -2,11 +2,14 @@ import { Injectable, signal, computed } from '@angular/core';
 import { User } from '../../shared/models/models';
 
 const STORAGE_KEY = 'society360_user';
+const TOKEN_KEY  = 'society360_token';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private userSignal = signal<User | null>(this.readStored());
+  private userSignal  = signal<User | null>(this.readStored());
+  private tokenSignal = signal<string | null>(localStorage.getItem(TOKEN_KEY));
   readonly user = this.userSignal.asReadonly();
+  readonly accessToken = this.tokenSignal.asReadonly();
   readonly isAuthenticated = computed(() => this.userSignal() !== null);
 
   private readStored(): User | null {
@@ -33,8 +36,15 @@ export class AuthService {
     return false;
   }
 
+  setToken(token: string): void {
+    localStorage.setItem(TOKEN_KEY, token);
+    this.tokenSignal.set(token);
+  }
+
   logout(): void {
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(TOKEN_KEY);
     this.userSignal.set(null);
+    this.tokenSignal.set(null);
   }
 }
